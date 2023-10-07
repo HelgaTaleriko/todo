@@ -1,23 +1,29 @@
 import React from "react";
 import Task from "./Task/Task";
 
-const TaskList = () => {
+const TaskList = ({todos,onDeleted}) => {
+    const elements = todos.map((item) => {
+        const {id, ...itemProps} = item
+        return (
+            <li  key={id}>
+                <Task
+                    {...itemProps}
+                    onDeleted={() => {
+                        onDeleted(id)
+                    }}/>
+            </li>
+
+        )
+
+    })
     return (
         <div>
             <ul className="todo-list">
-                <li className="completed">
-                    <Task/>
-                </li>
-                <li className="editing">
-                    <Task/>
-                </li>
-                <li>
-                   <Task/>
-                </li>
+                {elements}
             </ul>
         </div>
 
-)
+    )
 }
 
 export default TaskList
