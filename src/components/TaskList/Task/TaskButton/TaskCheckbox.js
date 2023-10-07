@@ -1,8 +1,15 @@
 import React from "react";
 
-const TaskCheckbox =()=>{
-    return(
-        <input className="toggle" type="checkbox"/>
-    )
+export default class TaskCheckbox extends React.Component{
+
+
+
+    render() {
+        const {click}=this.props
+
+        return (
+            <input className="toggle" type="checkbox" onClick={click}/>
+        )
+
+    }
 }
-export default TaskCheckbox

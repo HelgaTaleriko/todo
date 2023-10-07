@@ -1,20 +1,51 @@
 import React from "react";
 import TaskCheckbox from "./TaskButton/TaskCheckbox";
 import TaskEdit from "./TaskButton/TaskEdit";
-import TaskDestroy from "./TaskButton/TaskDestroy";
+import TaskDelete from "./TaskButton/TaskDelete";
+import TaskTimeCreated from "./TaskText/TaskTimeCreated";
+// import TaskText from "./TaskText/TaskText";
 
-const Task = () => {
-    return (
-        <div className="view">
-            <TaskCheckbox/>
-            <label>
-                <span className="description">Completed task</span>
-                <span className="created">created 17 seconds ago</span>
-            </label>
-            <TaskEdit/>
-            <TaskDestroy/>
-        </div>
+export default class Task extends React.Component {
 
-    )
+    state = {
+        completed: false
+    }
+
+
+    onLabelClick = () => {
+        this.setState(() => {
+            return {
+                completed: !this.state.completed
+            }
+        })
+    }
+
+    render() {
+
+        const {completed} = this.state
+        const {label} = this.props
+
+
+        let classNames = "description"
+        if (completed) {
+            classNames += " completed"
+        }
+        return (
+
+            <div className="view">
+                <div>
+                    <TaskCheckbox click={this.onLabelClick}/>
+                    <label>
+                        <span className={classNames}>{label}</span>
+                        <TaskTimeCreated/>
+                    </label>
+                </div>
+                <TaskEdit/>
+                <TaskDelete onDeleted={this.props.onDeleted}/>
+            </div>
+
+        )
+
+    }
 }
-export default Task
+
