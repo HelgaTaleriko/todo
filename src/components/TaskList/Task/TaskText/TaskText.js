@@ -1,14 +1,11 @@
 import React from "react";
 
-// export default class TaskText extends React.Component{
-//     render() {
-//         const {label}=this.props
-//         const {classNames}=this.state
-//         return (
-//
-//
-//         )
-//     }
-//
-//
-// }
+const TaskText = ({label, classnames}) => {
+    return (
+        <span className={classnames}> {label}</span>
+
+    )
+
+
+}
+export default TaskText

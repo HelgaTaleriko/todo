@@ -1,16 +1,16 @@
 import React from "react";
 import Task from "./Task/Task";
 
-const TaskList = ({todos,onDeleted}) => {
+const TaskList = ({todos, onDeleted, onToggleCompleted}) => {
     const elements = todos.map((item) => {
         const {id, ...itemProps} = item
         return (
-            <li  key={id}>
+            <li key={id}>
                 <Task
                     {...itemProps}
-                    onDeleted={() => {
-                        onDeleted(id)
-                    }}/>
+                    onDeleted={() => {onDeleted(id)}}
+                    onToggleCompleted={()=>{onToggleCompleted(id)}}
+                />
             </li>
 
         )
