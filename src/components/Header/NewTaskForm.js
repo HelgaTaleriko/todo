@@ -28,7 +28,6 @@ export default class NewTaskForm extends React.Component {
                    value={this.state.label}
                    autoFocus
             />
-            <button > add</button>
             </form>
 
         )

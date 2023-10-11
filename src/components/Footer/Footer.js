@@ -1,12 +1,22 @@
 import React from "react";
 import TasksFilter from "./TasksFilter";
+import TodoCount from "./TodoCount";
+import BtnClearCompleted from "./BtnClearCompleted";
 
-const Footer = () => {
+const Footer = ({todoCount,completedCount,handleFilterChange,filter,onDeleteCompletedItems}) => {
     return (
         <footer className="footer">
-            <span className="todo-count">1 items left</span>
-            <TasksFilter/>
-            <button className="clear-completed">Clear completed</button>
+            <TodoCount
+                completedCount={completedCount}
+                todoCount={todoCount}
+            />
+            <TasksFilter
+                handleFilterChange={handleFilterChange}
+                filter={filter}
+
+            />
+            <BtnClearCompleted
+                onDeleteCompletedItems={onDeleteCompletedItems}/>
         </footer>
     )
 }
