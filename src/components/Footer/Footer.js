@@ -20,4 +20,5 @@ const Footer = ({todoCount,completedCount,handleFilterChange,filter,onDeleteComp
         </footer>
     )
 }
+
 export default Footer
