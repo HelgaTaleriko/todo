@@ -1,8 +1,11 @@
 import React from "react";
 
-const TaskTimeCreated = () => {
+
+const TaskTimeCreated = ({distanceToNow}) => {
+
+
     return(
-        <span className="created">created 17 seconds ago</span>
+        <span className="created"> {distanceToNow} </span>
 
     )
 
